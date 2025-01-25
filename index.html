@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo PLanet</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <!--navbar-->
+    <div class="nav" id="nav">
+        <div class="banner__buttons">
+            <!--<button class="banner__button">Home</button>-->
+            <!--<button class="banner__button">Introduction</button>-->
+        </div>
+        <img src="images/netflix-logo.png" alt="" class="nav__logo">
+        <img src="images/netflix-avatar.png" alt="" class="nav__avatar">
+    </div>
+    <!--Header-->
+    <div class ="banner">
+        <div class="banner__contents">
+            <h1 class="banner__title">Exo Planets</h1>
+            
+            <div class="banner__description">
+                Learn more about Exo Planets with this visual and compelling research.
+            </div>
+            
+        </div>
+        <div class="banner__fadeBottom">
+
+        </div>
+    </div>
+    <!--Introductiom -->
+    <div class="row">
+        <h2>Introduction</h2>
+        <p>
+            According to NASA, an <b>exoplanet</b> is any planet beyond our Solar System. Exoplanets orbit other stars, but there are also "rogue planets" which do not orbit any star. Some of these orbiting planets fall within the "habitable zone" of their host star, which is the distance from a star at which water on its liquid form could exist on the planet's surface.
+        </p>
+    </div>    
+    <!--Research Question -->
+    <div class="row">
+        <h2>Research Question</h2>
+        <p>
+            This research and analysis is guided by the following question regarding exoplanets:
+        </p>
+        <h3>Are there any exoplanets that fall within the habitable zone of their host star?</h3>
+        
+    </div>
+
+    <!--Dataset -->
+    <div class="row">
+        <h2>Dataset</h2>
+        <p>
+            For this project  <a href="https://www.kaggle.com/datasets/diaaessam/exoplanets-planets-outside-our-galaxy">this </a>Kaggle dataset was used. 
+            The relevant variables provided by these dataset were:
+
+            <ul>
+                <li>Name: name of the exoplanet.</li> 
+                <li>Mass (MJ): mass of the exoplanet.</li>
+                <li>Radius (RJ): radius of the exoplanet.</li>
+                <li>Period (days): the period the exoplanet takes to make a full orbit around it's sun.</li>
+                <li>Semi-major axis (AU): is half of the longest diameter of an ellipse.</li>
+                <li>Temp (K): Temperature of the exoplanet.</li>
+                <li>Discovery method: method used to discover the exoplanet.</li>
+                <li>Disc. Year: Discovery year.</li>
+                <li>Distance (ly): Distance from earth in light years.</li>
+                <li>Host star mass (M☉): the star the exoplanet orbits around.</li>
+            </ul>
+
+
+            The data was cleaned and analyzed with python's pandas and numpy libraries.
+        </p>
+        
+    </div>
+    <!--Sub Questions -->
+    <div class="row">
+        <h2>Sub questions</h2>
+        <p>
+            In order to attend this question we can visualize the characteristics that make exoplanets habitable with python's matplotlib seaborn. First, we will subdivide the "big" question into two smaller ones:
+        </p>
+        <!--Question 1 -->
+        <h3>What is the rate of exoplanets that are in the habitable zone?</h3>
+        <h4>Relevant variables:</h4>
+        <ul>
+            <li>Semi-major axis</li>
+            <li>Host star temperature</li>
+            <li>Radius</li>
+        </ul>
+        <p>To estimate whether a planet might be habitable we can use the semimajor axis of the planet―the distance from the center of the
+             elliptical orbit of the planet to the farthest point on the perimeter of the orbit―and the host star's temperature. With
+             these two variables we can use the concept of the habitable zone (HZ). The HZ is the range of distances from a star where a 
+             planet could have liquid water on its surface, given sufficient atmospheric pressure.</p>
+
+        <p>
+
+        </p>
+
+       
+    </div>
+     <!--Plot -->
+     <div class="row">
+        <p>
+            If we plot these two variables we can see that they have a linear correlation with some outliers. Click on the image for interactivity with the plot.
+        </p>
+        <a href="plot1.html"><img src="images/plot.jpg" class="img"> </a>
+    </div>
+    
+    <!--Question 2 -->
+    <div class="row">
+        <h3>Is the size of the host star relevant in whether or not an exoplanet is habitable?</h3>
+        <h4>Relevant variables:</h4>
+        <ul>
+            <li>Habitable boolean</li>
+            <li>Size</li>
+        </ul>
+    </div>
+   
+    
+          
+    
+    <script>
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll',() => {
+            if(window.scrollY>=100){
+                nav.classList.add('nav__black')
+            }else{
+                nav.classList.remove('nav__black')
+            }
+        })
+    </script>
+
+
+</body>
+</html>
