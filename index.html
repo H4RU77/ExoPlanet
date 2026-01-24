@@ -22,7 +22,7 @@
             <h1 class="banner__title">Exo Planets</h1>
             
             <div class="banner__description">
-                Learn more about Exo Planets with this visual and compelling research.
+                An exploratory data analysis of exoplanet observational data using scientific computing techniques.
             </div>
             
         </div>
@@ -39,26 +39,6 @@
         <img src="images\researchquestionimg.jpg" class="img"> 
     </div>
     
-     <!--Methodology -->
-    <div class="row">
-    <h2>Methodology</h2>
-    <p>
-        The analysis was conducted using Python and scientific computing tools. 
-        First, the dataset was cleaned by handling missing values and filtering 
-        physically meaningful ranges for orbital and stellar parameters.
-    </p>
-    <p>
-        To estimate whether an exoplanet lies within the habitable zone, we used 
-        the semi-major axis and host star temperature as proxies, comparing them 
-        against theoretical habitable zone boundaries.
-    </p>
-    <p>
-        Data visualization and exploratory analysis were performed using 
-        Matplotlib and Seaborn to identify correlations and outliers.
-    </p>
-</div>
-
-
     <!--Research Question -->
     <div class="row">
         <h2>Research Question</h2>
@@ -94,50 +74,205 @@
         </p>
         
     </div>
-    <!--Sub Questions -->
+
+     <!--Methodology -->
     <div class="row">
-        <h2>Sub questions</h2>
+    <h2>Methodology</h2>
+    <p>
+        This project follows an exploratory data analysis (EDA) approach using
+        real exoplanet observational data. The dataset was downloaded directly
+        from Kaggle and processed using Python scientific libraries.
+        This work is intended as an exploratory data analysis (EDA) rather than a definitive classification of habitable exoplanets
+    </p>
+
+    <p>
+        The analysis workflow includes:
+    </p>
+
+    <ul>
+        <li>Data acquisition and inspection using <b>pandas</b></li>
+        <li>Identification of missing values and data completeness</li>
+        <li>Filtering relevant physical parameters related to habitability</li>
+        <li>Exploratory visualization of orbital and stellar properties</li>
+    </ul>
+
+    <p>
+        Due to the large number of missing values in several columns, the analysis
+        focuses on exoplanets with available measurements of semi-major axis and
+        temperature, which are key parameters for estimating habitability.
+    </p>
+</div>
+
+    <!--Data Cleaning & Limitations -->
+    <div class="row">
+    <h2>Data Cleaning & Limitations</h2>
+    <p>
+        The dataset contains a significant number of missing values, particularly
+        in planetary temperature and orbital parameters.
+    </p>
+
+    <p>
+        To ensure meaningful analysis, rows with missing values in the following
+        variables were removed:
+    </p>
+
+    <ul>
+        <li>Semi-major axis (AU)</li>
+        <li>Planetary temperature (K)</li>
+    </ul>
+
+    <p>
+        As a result, the analysis represents a subset of known exoplanets and
+        should be interpreted as exploratory rather than exhaustive.
+    </p>
+</div>
+
+
+    
+
+    
+    <!--Analysis -->
+    <div class="row">
+        <h2>Analysis</h2>
         <p>
-            In order to attend this question we can visualize the characteristics that make exoplanets habitable with python's matplotlib seaborn. First, we will subdivide the "big" question into two smaller ones:
+            To address this research question we can visualize the characteristics that make exoplanets habitable using Python-based visualization libraries such as Matplotlib and Seaborn. 
         </p>
         <!--Question 1 -->
-        <h3>What is the rate of exoplanets that are in the habitable zone?</h3>
+        <h3>What is the relationship between orbital distance and temperature?</h3>
         <h4>Relevant variables:</h4>
         <ul>
             <li>Semi-major axis</li>
             <li>Host star temperature</li>
             <li>Radius</li>
         </ul>
-        <p>To estimate whether a planet might be habitable we can use the semimajor axis of the planet―the distance from the center of the
+
+        <p>
+        As a first step toward identifying potentially habitable exoplanets,
+        we analyze the relationship between the semi-major axis of an exoplanet
+        and its estimated temperature.
+        </p>
+
+        <p>
+        The semi-major axis represents the average distance between the planet
+        and its host star, while temperature serves as a proxy for the energy
+        received by the planet.
+    </p>
+
+    <p>
+        A random sample of 200 exoplanets was selected to improve visualization
+        clarity and reduce overcrowding in the scatter plot.
+    </p>
+
+    <p>To estimate whether a planet might be habitable we can use the semimajor axis of the planet―the distance from the center of the
              elliptical orbit of the planet to the farthest point on the perimeter of the orbit―and the host star's temperature. With
              these two variables we can use the concept of the habitable zone (HZ). The HZ is the range of distances from a star where a 
              planet could have liquid water on its surface, given sufficient atmospheric pressure.</p>
 
-        <p>
+    <p>
 
-        </p>
+        
+
 
        
     </div>
      <!--Plot -->
      <div class="row">
+        <h2>Plot</h2>
         <p>
-            If we plot these two variables we can see that they have a linear correlation with some outliers. Click on the image for interactivity with the plot.
+        The scatter plot below shows the relationship between semi-major axis
+        and planetary temperature. A general decreasing trend can be observed,
+        consistent with basic physical expectations: planets closer to their
+        host stars tend to exhibit higher temperatures. (Click on plot for interactivity)
+        </p>
+
+        <p>
+        Outliers may be explained by observational uncertainties, atmospheric
+        effects, or limitations in the available temperature estimates.
         </p>
         <a href="plot1.html"><img src="images/plot.jpg" class="img"> </a>
+        <p>
+        This visualization was generated using Python (Matplotlib) and can be reproduced directly from the analysis notebook.
+        </p>
     </div>
     
-    <!--Question 2 -->
+ 
+   <!--Toward Habitability Estimation -->
     <div class="row">
-        <h3>Is the size of the host star relevant in whether or not an exoplanet is habitable?</h3>
-        <h4>Relevant variables:</h4>
-        <ul>
-            <li>Habitable boolean</li>
-            <li>Size</li>
-        </ul>
-    </div>
-   
-    
+    <h2>Toward Habitability Estimation</h2>
+    <p>
+        To estimate whether an exoplanet lies within the habitable zone of its
+        host star, stellar luminosity must be calculated.
+    </p>
+
+    <p>
+        Stellar luminosity depends on the effective temperature of the star and
+        its radius, according to the Stefan–Boltzmann law:
+    </p>
+
+    <p>
+        <b>L = 4πR²σT⁴</b>
+    </p>
+
+    <p>
+        Future steps of this project will incorporate stellar luminosity to
+        estimate habitable zone boundaries and classify exoplanets accordingly.
+    </p>
+</div>
+
+<!--Scientific Context -->
+<div class="row">
+    <h2>Scientific Context</h2>
+    <p>
+        This project is inspired by current research in exoplanet science,
+        where computational methods and large astronomical datasets are
+        essential for identifying trends and guiding future observations.
+    </p>
+
+    <p>
+        While this study does not confirm habitability, it demonstrates how
+        scientific programming and data analysis can be used to explore
+        astrophysical questions using real observational data.
+    </p>
+</div>
+
+
+
+<!--Reproducibility & Code -->
+<div class="row">
+    <h2>Reproducibility & Code</h2>
+
+    <p>
+        All data processing, cleaning, and exploratory analysis were performed
+        using Python and Jupyter Notebooks. The analysis was performed using pandas and NumPy for data handling, and Matplotlib/Seaborn for visualization
+    </p>
+
+    <ul>
+        <li>
+            <a href="https://github.com/H4RU77/ExoPlanet" target="_blank">
+                GitHub Repository
+            </a>
+        </li>
+        <li>
+            <a href="https://colab.research.google.com/github/H4RU77/ExoPlanet/blob/main/notebook/AstroProject_Inicial.ipynb"
+               target="_blank">
+                Open Analysis Notebook in Google Colab
+            </a>
+        </li>
+        <li>
+            <a href="https://nbviewer.org/github/H4RU77/ExoPlanet/blob/main/notebook/AstroProject_Inicial.ipynb"
+               target="_blank">
+                View Notebook (Rendered)
+            </a>
+        </li>
+    </ul>
+
+    <a href="https://colab.research.google.com/github/H4RU77/ExoPlanet/blob/main/notebook/AstroProject_Inicial.ipynb"
+       target="_blank">
+        <img src="https://colab.research.google.com/assets/colab-badge.svg"
+             alt="Open In Colab">
+    </a>
+</div>
+
           
     
     <script>
